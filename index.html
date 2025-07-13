@@ -1,1 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Modern Payment Landing</title>
+  <meta name="description" content="A modern, production-ready payment landing page with PWA, security, analytics & more.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+
+  <!-- Stripe Buy Button -->
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+
+  <!-- Intercom Settings -->
+  <script>
+    window.intercomSettings = {
+      app_id: "mvbj6qcv"
+    };
+  </script>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section id="hero" style="text-align:center; padding:4rem 2rem; background:var(--primary); color:#fff;">
+    <h1>Modern Payment Landing Page</h1>
+    <p style="font-size:1.2rem; margin:1rem 0 2rem;">
+      Unlock your access: 7-day free trial, then $29.99/mo.
+    </p>
+    <stripe-buy-button
+      buy-button-id="buy_btn_1RkIHWK5abcrIcyeAkpABrRv"
+      publishable-key="pk_live_51P4BLMK5abcrIcyebzFrrEwI0T1vTbKG1HzgZTwNLuSurwwwuXNNjfJjxTfOMua5Jp1rArP8AQPpyATYl74jDYY100pkzkc9vj"
+      style="--buy-button-width:200px; --buy-button-height:50px; --buy-button-font-size:16px;"
+    ></stripe-buy-button>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="container" style="padding:4rem 0;">
+    <h2 style="text-align:center; margin-bottom:2rem;">Core Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="icon">🖥️</div>
+        <h3>Modern Sleek Design</h3>
+        <p>Gradients, animations, glassmorphism, responsive layouts.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🔒</div>
+        <h3>Advanced Security</h3>
+        <p>CSP, security headers, HTTPS, input sanitization.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">⚡</div>
+        <h3>Performance Optimized</h3>
+        <p>Core Web Vitals, SW offline, lazy-loading, monitoring.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">♿</div>
+        <h3>Accessibility</h3>
+        <p>WCAG 2.1 AA, ARIA roles, keyboard nav, focus management.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="container" style="padding:4rem 0; background:#f9f9f9;">
+    <h2 style="text-align:center; margin-bottom:2rem;">Pricing Plans</h2>
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Plan</th>
+          <th>7-Day Trial</th>
+          <th>Monthly</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Cost</td>
+          <td>Free</td>
+          <td>$29.99</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><!-- Trial CTA uses same button --></td>
+          <td>
+            <stripe-buy-button
+              buy-button-id="buy_btn_1RkIHWK5abcrIcyeAkpABrRv"
+              publishable-key="pk_live_51P4BLMK5abcrIcyebzFrrEwI0T1vTbKG1HzgZTwNLuSurwwwuXNNjfJjxTfOMua5Jp1rArP8AQPpyATYl74jDYY100pkzkc9vj"
+              style="--buy-button-width:150px; --buy-button-height:40px; --buy-button-font-size:14px;"
+            ></stripe-buy-button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- DEMO -->
+  <section id="demo" class="container" style="padding:4rem 0;">
+    <h2 style="text-align:center; margin-bottom:2rem;">Live Demo</h2>
+    <iframe
+      src="https://uaios.app/demo"
+      style="width:100%; max-width:900px; height:500px; border:0; border-radius:8px;"
+      allowfullscreen>
+    </iframe>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="container" style="padding:4rem 0; background:#f0f2f5;">
+    <h2 style="text-align:center; margin-bottom:2rem;">Contact Us</h2>
+    <div class="contact-info">
+      <div class="contact-col">
+        <h3>Follow Us</h3>
+        <p><a href="https://x.com/EpicTechAI" target="_blank">X.com/EpicTechAI</a></p>
+      </div>
+      <div class="contact-col">
+        <h3>Email</h3>
+        <p><a href="mailto:epictechai@gmail.com">epictechai@gmail.com</a></p>
+      </div>
+      <div class="contact-col">
+        <h3>Website</h3>
+        <p><a href="https://epictech.ai" target="_blank">epictech.ai</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#333; color:#fff; padding:2rem 0;">
+    <div class="container">
+      <p style="text-align:center;">&copy; 2025 Epic Tech AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script src="assets/js/analytics.js"></script>
+
+  <!-- Intercom Loader -->
+  <script>
+    (function(){
+      var w=window;var ic=w.Intercom;
+      if(typeof ic==="function"){ic('reattach_activator');ic('update',w.intercomSettings);}
+      else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};
+        w.Intercom=i;var l=function(){
+          var s=d.createElement('script');s.type='text/javascript';s.async=true;
+          s.src='https://widget.intercom.io/widget/mvbj6qcv';
+          var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);
+        };
+        if(document.readyState==='complete'){l();} else if(w.attachEvent){w.attachEvent('onload',l);}
+        else{w.addEventListener('load',l,false);}
+      }
+    })();
+  </script>
+
+</body>
+</html>
 
