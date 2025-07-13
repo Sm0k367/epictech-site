@@ -2,16 +2,14 @@
   "version": 2,
   "name": "modern-payment-landing",
   "builds": [
-    { "src": "index.html",        "use": "@vercel/static" },
-    { "src": "sw.js",             "use": "@vercel/static" },
-    { "src": "assets/**",         "use": "@vercel/static" },
-    { "src": "docs/**",           "use": "@vercel/static" },
-    { "src": "tests/**",          "use": "@vercel/static" },
-    { "src": "variations/**",     "use": "@vercel/static" }
+    { "src": "index.html",    "use": "@vercel/static" },
+    { "src": "sw.js",         "use": "@vercel/static" },
+    { "src": "assets/**",     "use": "@vercel/static" },
+    { "src": "docs/**",       "use": "@vercel/static" },
+    { "src": "tests/**",      "use": "@vercel/static" },
+    { "src": "variations/**", "use": "@vercel/static" }
   ],
-  "routes": [
-    { "src": "/(.*)", "dest": "/$1" }
-  ],
+  "cleanUrls": true,
   "headers": [
     {
       "source": "/(.*)",
@@ -26,3 +24,4 @@
     }
   ]
 }
+
