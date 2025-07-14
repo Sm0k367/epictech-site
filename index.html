@@ -1,328 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Premium access to exclusive content and features. Secure payment processing with instant activation.">
-    <meta name="keywords" content="premium access, subscription, secure payment, exclusive content">
-    <meta name="author" content="Premium Access Platform">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yoursite.com/">
-    <meta property="og:title" content="Premium Access - Unlock Exclusive Content">
-    <meta property="og:description" content="Join thousands of users accessing premium content with secure, instant activation.">
-    <meta property="og:image" content="https://yoursite.com/assets/images/og-image.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Epic Tech AI Chat Hub</title>
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://yoursite.com/">
-    <meta property="twitter:title" content="Premium Access - Unlock Exclusive Content">
-    <meta property="twitter:description" content="Join thousands of users accessing premium content with secure, instant activation.">
-    <meta property="twitter:image" content="https://yoursite.com/assets/images/og-image.jpg">
+  <!-- Tailwind CSS & Inter Font -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>body { font-family: 'Inter', sans-serif; }</style>
 
-    <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' https://js.stripe.com https://widget.intercom.io https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.stripe.com https://api-iam.intercom.io https://www.google-analytics.com;">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <!-- Stripe Buy Button -->
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 
-    <!-- Favicon and App Icons -->
-    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
-    <link rel="manifest" href="assets/icons/site.webmanifest">
-
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://js.stripe.com">
-    <link rel="preconnect" href="https://api-iam.intercom.io">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/animations.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-
-    <title>Premium Access - Unlock Exclusive Content</title>
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "Premium Access",
-        "description": "Exclusive access to premium content and features",
-        "brand": {
-            "@type": "Brand",
-            "name": "Premium Access Platform"
-        },
-        "offers": {
-            "@type": "Offer",
-            "availability": "https://schema.org/InStock",
-            "priceCurrency": "USD"
-        }
-    }
-    </script>
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
-    </script>
-
-    <!-- Intercom Settings -->
-    <script>
-        window.intercomSettings = {
-            api_base: "https://api-iam.intercom.io",
-            app_id: "v3z0dbav",
-            user_id: "mvbj6qcv",
-            name: "Premium User",
-            hide_default_launcher: false,
-            alignment: 'right',
-            horizontal_padding: 20,
-            vertical_padding: 20
-        };
-    </script>
+  <!-- Intercom settings (must come before loader) -->
+  <script>
+    window.intercomSettings = {
+      app_id: "mvbj6qcv",        // ← Your Intercom App ID
+      // auto-open the messenger on page load:
+      alignment: "right",
+      custom_launcher_selector: "body"  // we’ll auto-show below
+    };
+  </script>
 </head>
-<body>
-    <!-- Loading Screen -->
-    <div id="loading-screen" class="loading-screen">
-        <div class="loading-spinner"></div>
-        <p>Loading Premium Experience...</p>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-600 to-purple-700 text-white">
+
+  <!-- Title & Stripe -->
+  <div class="text-center space-y-4 px-4">
+    <h1 class="text-5xl font-extrabold">Welcome to Epic Tech AI</h1>
+    <p class="text-lg opacity-90">Chat with our AI-powered assistant below 👇</p>
+
+    <!-- Stripe subscription links -->
+    <div class="space-x-4 mt-6">
+      <!-- 7 day free trial -->
+      <a href="https://buy.stripe.com/3cI8wQgj74LI592cDM0Fi05" target="_blank"
+         class="px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-lg shadow hover:bg-yellow-500 transition">
+        Start 7-Day Free Trial
+      </a>
+      <!-- Monthly plan -->
+      <a href="https://buy.stripe.com/00g5mU7kL4BI7eo28b" target="_blank"
+         class="px-6 py-3 bg-green-400 text-gray-900 font-semibold rounded-lg shadow hover:bg-green-500 transition">
+        $29.99 / month
+      </a>
     </div>
+  </div>
 
-    <!-- Theme Toggle -->
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-        <span class="theme-icon">🌙</span>
-    </button>
+  <!-- Contact Info -->
+  <footer class="mt-auto mb-8 text-center space-y-1 text-sm opacity-80">
+    <div>Email: <a href="mailto:epictechai@gmail.com" class="underline">epictechai@gmail.com</a></div>
+    <div>Follow: <a href="https://x.com/EpicTechAI" target="_blank" class="underline">@EpicTechAI</a></div>
+    <div>Web: <a href="https://epictech.ai" target="_blank" class="underline">epictech.ai</a></div>
+  </footer>
 
-    <!-- Main Container -->
-    <main class="main-container" role="main">
-        <!-- Clean Background - No Animated Elements -->
-        <div class="background-elements">
-            <!-- Removed all floating shapes and orbs to prevent animation issues -->
-        </div>
-
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-content">
-                <!-- Logo/Brand -->
-                <div class="brand-logo">
-                    <div class="logo-icon">✨</div>
-                    <h1 class="brand-name">Premium Access</h1>
-                </div>
-
-                <!-- Main Heading -->
-                <h2 class="hero-title">
-                    Unlock <span class="gradient-text">Exclusive</span> Content
-                </h2>
-
-                <!-- Subtitle -->
-                <p class="hero-subtitle">
-                    Join thousands of users accessing premium features, exclusive content, and advanced tools designed to elevate your experience.
-                </p>
-
-                <!-- Features List -->
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon">🚀</div>
-                        <span>Instant Access</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">🔒</div>
-                        <span>Secure Payment</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">⭐</div>
-                        <span>Premium Support</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">📱</div>
-                        <span>All Devices</span>
-                    </div>
-                </div>
-
-                <!-- Social Proof -->
-                <div class="social-proof">
-                    <div class="user-avatars">
-                        <div class="avatar">👤</div>
-                        <div class="avatar">👤</div>
-                        <div class="avatar">👤</div>
-                        <div class="avatar">👤</div>
-                        <div class="avatar-count">+1.2k</div>
-                    </div>
-                    <p class="social-text">Trusted by <strong>1,200+</strong> premium users</p>
-                </div>
-
-                <!-- Payment Section -->
-                <div class="payment-section">
-                    <div class="payment-header">
-                        <h3>Choose Your Access</h3>
-                        <p>Secure checkout powered by Stripe</p>
-                    </div>
-
-                    <!-- Payment Loading State -->
-                    <div id="payment-loading" class="payment-loading hidden">
-                        <div class="payment-spinner"></div>
-                        <p>Preparing secure checkout...</p>
-                    </div>
-
-                    <!-- Stripe Buy Button Container -->
-                    <div id="stripe-container" class="stripe-container">
-                        <stripe-buy-button
-                            buy-button-id="buy_btn_1RVIj6K5abcrIcyekWGIf3ch"
-                            publishable-key="pk_live_51P4BLMK5abcrIcyebzFrrEwI0T1vTbKG1HzgZTwNLuSurwwuXNNjfJjxTfOMua5Jp1rArP8AQPpyATYl74jDYY100pkzkc9vj"
-                        ></stripe-buy-button>
-                    </div>
-
-                    <!-- Security Badges -->
-                    <div class="security-badges">
-                        <div class="badge">
-                            <span class="badge-icon">🔐</span>
-                            <span>SSL Encrypted</span>
-                        </div>
-                        <div class="badge">
-                            <span class="badge-icon">💳</span>
-                            <span>Stripe Secure</span>
-                        </div>
-                        <div class="badge">
-                            <span class="badge-icon">🛡️</span>
-                            <span>PCI Compliant</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ Section -->
-                <div class="faq-section">
-                    <h3>Frequently Asked Questions</h3>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>What's included in premium access?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Premium access includes exclusive content, advanced features, priority support, and access to all future updates.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>Is my payment secure?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>Yes, all payments are processed securely through Stripe with industry-standard encryption and PCI compliance.</p>
-                        </div>
-                    </div>
-                    <div class="faq-item">
-                        <button class="faq-question" aria-expanded="false">
-                            <span>Can I get a refund?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-answer">
-                            <p>We offer a 30-day money-back guarantee. Contact our support team if you're not satisfied.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <p>&copy; 2025 Premium Access Platform. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#privacy">Privacy Policy</a>
-                    <a href="#terms">Terms of Service</a>
-                    <a href="#support">Support</a>
-                </div>
-            </div>
-        </footer>
-    </main>
-
-    <!-- Success Modal -->
-    <div id="success-modal" class="modal hidden">
-        <div class="modal-content">
-            <div class="success-icon">✅</div>
-            <h3>Payment Successful!</h3>
-            <p>Welcome to Premium Access. You'll receive a confirmation email shortly.</p>
-            <button class="modal-close">Continue</button>
-        </div>
-    </div>
-
-    <!-- Error Modal -->
-    <div id="error-modal" class="modal hidden">
-        <div class="modal-content">
-            <div class="error-icon">❌</div>
-            <h3>Payment Failed</h3>
-            <p id="error-message">Something went wrong. Please try again or contact support.</p>
-            <button class="modal-close">Try Again</button>
-        </div>
-    </div>
-
-    <!-- Scripts -->
-    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/animations.js"></script>
-    <script src="assets/js/theme.js"></script>
-    <script src="assets/js/analytics.js"></script>
-
-    <!-- Intercom Chat -->
-    <script>
-        (function(){
-            var w=window;
-            var ic=w.Intercom;
-            if(typeof ic==="function"){
-                ic('reattach_activator');
-                ic('update',w.intercomSettings);
-            } else {
-                var d=document;
-                var i=function(){i.c(arguments);};
-                i.q=[];
-                i.c=function(args){i.q.push(args);};
-                w.Intercom=i;
-                var l=function(){
-                    var s=d.createElement('script');
-                    s.type='text/javascript';
-                    s.async=true;
-                    s.src='https://widget.intercom.io/widget/v3z0dbav';
-                    var x=d.getElementsByTagName('script')[0];
-                    x.parentNode.insertBefore(s,x);
-                };
-                if(document.readyState==='complete'){
-                    l();
-                } else if(w.attachEvent){
-                    w.attachEvent('onload',l);
-                } else {
-                    w.addEventListener('load',l,false);
-                }
-            }
-        })();
-    </script>
-
-    <!-- Service Worker Registration -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', function() {
-                navigator.serviceWorker.register('sw.js')
-                    .then(function(registration) {
-                        console.log('ServiceWorker registration successful');
-                    })
-                    .catch(function(err) {
-                        console.log('ServiceWorker registration failed');
-                    });
-            });
+  <!-- Intercom loader & auto-open -->
+  <script>
+    (function(){
+      var w=window, ic=w.Intercom;
+      if(typeof ic==="function"){
+        ic('reattach_activator');
+        ic('update',w.intercomSettings);
+      } else {
+        var d=document, i=function(){ i.c(arguments) }; i.q=[]; i.c=function(args){i.q.push(args)};
+        w.Intercom=i;
+        function load(){ 
+          var s=d.createElement('script'); s.type='text/javascript'; s.async=true;
+          s.src='https://widget.intercom.io/widget/mvbj6qcv';
+          var x=d.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,x);
         }
-    </script>
+        if(d.readyState==='complete'){ load(); }
+        else if(w.attachEvent){ w.attachEvent('onload',load); }
+        else { w.addEventListener('load',load,false); }
+      }
+    })();
+    // once Intercom is ready, auto-open the chat window
+    window.addEventListener('load', function(){
+      setTimeout(function(){
+        if(window.Intercom) Intercom('show');
+      }, 500);
+    });
+  </script>
+
 </body>
 </html>
-
